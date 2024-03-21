@@ -21,7 +21,7 @@ WORK_DIR=/app
 function vendor() {
   binary="$1"
   path="$2"
-  work="3"
+  work="$3"
 
   echo "Fetching $binary" | indent
   mkdir -p $path

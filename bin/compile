@@ -27,7 +27,7 @@ function vendor() {
   mkdir -p $path
   mkdir -p $work
   curl -sL $binary -s -o - | tar xz -C $path --strip 1 -f -
-  curl -sL $binary -s -o - | tar xz -C $work --strip 1 -f -
+  # curl -sL $binary -s -o - | tar xz -C $work --strip 1 -f -
 
   [ -d "$path/bin" ] && export PATH=$path/bin:$PATH
   export CPPPATH="$path/include:$CPPPATH"
@@ -38,8 +38,8 @@ function vendor() {
   echo $PKG_CONFIG_PATH
   [ -d "$path/lib/pkgconfig" ] && export PKG_CONFIG_PATH="$path/lib/pkgconfig:$PKG_CONFIG_PATH"
   echo "Looking for .pc"
-  ls "$work/lib/pkgconfig"
-  export PKG_CONFIG_PATH="$work/lib/pkgconfig:$PKG_CONFIG_PATH"
+  ls "$path/lib/pkgconfig"
+  # export PKG_CONFIG_PATH="$work/lib/pkgconfig:$PKG_CONFIG_PATH"
   echo "Check PKG_CONFIG_PATH again"
   echo $PKG_CONFIG_PATH
   true

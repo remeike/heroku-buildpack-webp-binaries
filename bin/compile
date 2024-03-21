@@ -29,8 +29,11 @@ function vendor() {
   export CPATH="$path/include:$CPATH"
   export LIBRARY_PATH="$path/lib:$LIBRARY_PATH"
   export LD_LIBRARY_PATH="$path/lib:$LD_LIBRARY_PATH"
+  echo "Check PKG_CONFIG_PATH"
+  echo $PKG_CONFIG_PATH
   [ -d "$path/lib/pkgconfig" ] && export PKG_CONFIG_PATH="$path/lib/pkgconfig:$PKG_CONFIG_PATH"
-
+  echo "Check PKG_CONFIG_PATH again"
+  echo $PKG_CONFIG_PATH
   true
 }
 
